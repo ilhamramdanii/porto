@@ -53,8 +53,7 @@ export default function Hero() {
         >
           Fullstack Developer dengan pengalaman 1+ tahun membangun sistem berbasis web untuk sektor{" "}
           <span className="text-gray-900 dark:text-white font-medium">kesehatan</span>,{" "}
-          <span className="text-gray-900 dark:text-white font-medium">farmasi</span>, dan{" "}
-          <span className="text-gray-900 dark:text-white font-medium">pemerintahan</span>. Spesialis
+          <span className="text-gray-900 dark:text-white font-medium">farmasi</span>. Spesialis
           dalam TypeScript, Next.js, Laravel, dan Node.js.
         </motion.p>
 
