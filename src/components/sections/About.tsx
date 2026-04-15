@@ -51,9 +51,9 @@ export default function About() {
             {/* Quick info */}
             <div className="space-y-3">
               {[
-                { icon: <FiMapPin />, text: "Bandung, Indonesia" },
-                { icon: <FiBook />, text: "S1 Teknik Informatika – Universitas Widyatama" },
-                { icon: <FiCode />, text: "Fullstack Developer & Web System Integrator" },
+                { icon: <FiMapPin />, text: "Cianjur, Indonesia" },
+                { icon: <FiBook />, text: "S1 Teknik Informatika – Universitas Widyatama (IPK 3.52)" },
+                { icon: <FiCode />, text: "Fullstack Developer | System Builder" },
               ].map(({ icon, text }) => (
                 <div key={text} className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
                   <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">{icon}</span>
@@ -73,23 +73,25 @@ export default function About() {
           >
             <div className="space-y-4">
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Saya adalah Fullstack Developer dengan fokus pada pengembangan sistem berbasis web
-                dan digitalisasi proses bisnis. Berpengalaman membangun sistem untuk sektor{" "}
-                <strong className="text-gray-900 dark:text-white">kesehatan</strong> dan{" "}
-                <strong className="text-gray-900 dark:text-white">industri</strong>, termasuk
-                Document Management System, sistem manajemen risiko, dan integrasi API.
+                Fullstack Developer dengan pengalaman 1+ tahun membangun sistem berbasis web untuk
+                sektor{" "}
+                <strong className="text-gray-900 dark:text-white">kesehatan</strong>,{" "}
+                <strong className="text-gray-900 dark:text-white">farmasi</strong>, dan{" "}
+                <strong className="text-gray-900 dark:text-white">pemerintahan</strong>. Telah
+                mengembangkan 10+ sistem dan aplikasi produktif mulai dari sistem manajemen rumah
+                sakit, e-commerce, hingga aplikasi mobile berbasis deep learning.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Saya terbiasa mengembangkan solusi{" "}
-                <strong className="text-gray-900 dark:text-white">end-to-end</strong> mulai dari
-                analisis kebutuhan hingga deployment.
+                Spesialis dalam{" "}
+                <strong className="text-gray-900 dark:text-white">TypeScript, Next.js, Laravel</strong>
+                , dan <strong className="text-gray-900 dark:text-white">Node.js</strong>. Terbiasa
+                mengelola full SDLC dari analisis kebutuhan hingga deployment di VPS, serta
+                berkolaborasi langsung dengan stakeholder lintas divisi.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Selain pengalaman industri, saat ini saya merupakan{" "}
-                <strong className="text-gray-900 dark:text-white">mahasiswa tingkat akhir</strong>{" "}
-                S1 Teknik Informatika di Universitas Widyatama. Kombinasi antara fondasi akademis
-                yang kuat dan pengalaman praktis membuat saya mampu merancang arsitektur sistem yang
-                efisien dan <strong className="text-gray-900 dark:text-white">scalable</strong>.
+                Spesialisasi:{" "}
+                <strong className="text-gray-900 dark:text-white">Web-based System Development</strong>
+                , Business Process Automation, Mobile Development, dan Data Analysis.
               </p>
             </div>
 
@@ -98,27 +100,34 @@ export default function About() {
               <p className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-3">
                 Pendidikan
               </p>
-              {education.map((edu) => (
-                <div key={edu.institution} className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                    <FiBook className="text-blue-600 dark:text-blue-400" size={18} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 dark:text-white">{edu.institution}</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {edu.degree} {edu.field}
-                    </p>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="text-xs text-gray-500 dark:text-gray-500">{edu.period}</span>
-                      {edu.status === "active" && (
-                        <span className="text-xs text-green-600 dark:text-green-400 font-medium bg-green-50 dark:bg-green-950/50 px-2 py-0.5 rounded-full">
-                          Aktif
-                        </span>
-                      )}
+              <div className="space-y-4">
+                {education.map((edu) => (
+                  <div key={edu.institution} className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
+                      <FiBook className="text-blue-600 dark:text-blue-400" size={18} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-white">{edu.institution}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {edu.degree} {edu.field}
+                      </p>
+                      <div className="flex items-center gap-2 mt-1 flex-wrap">
+                        <span className="text-xs text-gray-500 dark:text-gray-500">{edu.period}</span>
+                        {edu.gpa && (
+                          <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">
+                            IPK {edu.gpa}
+                          </span>
+                        )}
+                        {edu.status === "graduated" && (
+                          <span className="text-xs text-gray-500 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">
+                            Lulus
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

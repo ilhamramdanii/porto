@@ -8,8 +8,8 @@ import Badge from "@/components/ui/Badge";
 
 const typeConfig = {
   work: { label: "Full-time", variant: "blue" as const },
-  internship: { label: "Magang", variant: "purple" as const },
-  freelance: { label: "Freelance", variant: "green" as const },
+  internship: { label: "Internship", variant: "purple" as const },
+  freelance: { label: "Freelance / Kolaborasi", variant: "green" as const },
 };
 
 export default function Experience() {
@@ -71,6 +71,16 @@ export default function Experience() {
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                       {exp.description}
                     </p>
+                    {exp.highlights && exp.highlights.length > 0 && (
+                      <ul className="mb-4 space-y-1">
+                        {exp.highlights.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                            <span className="text-blue-500 mt-1 flex-shrink-0">–</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="flex flex-wrap gap-1.5">
                       {exp.techStack.map((tech) => (
                         <TechBadge key={tech} name={tech} />

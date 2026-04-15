@@ -7,7 +7,7 @@ export interface Project {
   techStack: string[];
   features: string[];
   impact: string;
-  category: "main" | "backend" | "fullstack" | "ai";
+  category: "main" | "backend" | "fullstack" | "ai" | "mobile";
   imageUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
@@ -17,7 +17,7 @@ export interface Project {
 export interface Skill {
   name: string;
   icon: string;
-  category: "frontend" | "backend" | "database" | "infrastructure";
+  category: "frontend" | "backend" | "database" | "infrastructure" | "mobile";
 }
 
 export interface Experience {
@@ -27,6 +27,7 @@ export interface Experience {
   description: string;
   techStack: string[];
   type: "work" | "internship" | "freelance";
+  highlights?: string[];
 }
 
 export interface Education {
@@ -34,5 +35,6 @@ export interface Education {
   degree: string;
   field: string;
   period: string;
+  gpa?: string;
   status: "active" | "graduated";
 }

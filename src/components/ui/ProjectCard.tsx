@@ -11,6 +11,7 @@ const categoryConfig = {
   backend: { label: "Backend / API", variant: "green" as const },
   fullstack: { label: "Fullstack", variant: "purple" as const },
   ai: { label: "AI / ML", variant: "orange" as const },
+  mobile: { label: "Mobile", variant: "purple" as const },
 };
 
 interface ProjectCardProps {

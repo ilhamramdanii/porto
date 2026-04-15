@@ -41,7 +41,7 @@ export default function Hero() {
         >
           Fullstack Developer
           <br />
-          <span className="text-blue-600 dark:text-blue-400">&amp; Web System Integrator</span>
+          <span className="text-blue-600 dark:text-blue-400">&amp; System Builder</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -51,11 +51,11 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10"
         >
-          Saya adalah Fullstack Developer dengan fokus pada pengembangan sistem berbasis web dan
-          digitalisasi proses bisnis. Berpengalaman membangun sistem untuk sektor{" "}
-          <span className="text-gray-900 dark:text-white font-medium">kesehatan</span> dan{" "}
-          <span className="text-gray-900 dark:text-white font-medium">industri</span>, termasuk
-          Document Management System, sistem manajemen risiko, dan integrasi API.
+          Fullstack Developer dengan pengalaman 1+ tahun membangun sistem berbasis web untuk sektor{" "}
+          <span className="text-gray-900 dark:text-white font-medium">kesehatan</span>,{" "}
+          <span className="text-gray-900 dark:text-white font-medium">farmasi</span>, dan{" "}
+          <span className="text-gray-900 dark:text-white font-medium">pemerintahan</span>. Spesialis
+          dalam TypeScript, Next.js, Laravel, dan Node.js.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -83,9 +83,9 @@ export default function Hero() {
           className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto"
         >
           {[
-            { value: "3+", label: "Proyek Enterprise" },
+            { value: "10+", label: "Sistem & Aplikasi" },
             { value: "5+", label: "Tech Stack" },
-            { value: "2+", label: "Tahun Pengalaman" },
+            { value: "1+", label: "Tahun Pengalaman" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>

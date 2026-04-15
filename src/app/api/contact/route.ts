@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
     const { name, email, subject, message } = parsed.data;
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL ?? "mas.ilhamramdani@gmail.com",
       replyTo: email,
@@ -50,8 +50,14 @@ export async function POST(req: Request) {
       `,
     });
 
+    if (error) {
+      console.error("[Resend Error]", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("[Contact API Error]", err);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
