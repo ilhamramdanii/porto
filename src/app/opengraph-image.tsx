@@ -137,6 +137,7 @@ export default function OgImage() {
             fontSize: 22,
             fontWeight: 700,
             color: "#475569",
+            display: "flex",
           }}
         >
           ilham<span style={{ color: "#2563eb" }}>.</span>dev
