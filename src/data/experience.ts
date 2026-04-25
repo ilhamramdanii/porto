@@ -1,4 +1,4 @@
-import { Experience, Education } from "@/types";
+import { Experience, Education, Certification, Organization } from "@/types";
 
 export const experiences: Experience[] = [
   {

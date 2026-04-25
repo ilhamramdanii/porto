@@ -10,6 +10,7 @@ const typeConfig = {
   work: { label: "Full-time", variant: "blue" as const },
   internship: { label: "Internship", variant: "purple" as const },
   freelance: { label: "Freelance / Kolaborasi", variant: "green" as const },
+  organization: { label: "Organisasi", variant: "orange" as const },
 };
 
 export default function Experience() {
