@@ -4,9 +4,9 @@ export const projects: Project[] = [
   {
     id: "rs-ummi",
     title: "Hospital Management System",
-    subtitle: "PT. Duta Graha Afiah (RS Ummi) – Bogor",
+    subtitle: "Digitalisasi Ekosistem Internal RS Ummi",
     description:
-      "Membangun 5+ modul sistem internal rumah sakit secara end-to-end, mencakup manajemen dokumen, permintaan makan pasien, manajemen risiko, rapat, dan monitoring ruangan.",
+      "Transformasi proses manual rumah sakit menjadi ekosistem digital terintegrasi. Mencakup otomasi dokumen administratif, manajemen risiko, dan monitoring kapasitas pasien secara real-time.",
     role: "Fullstack Developer (Analisis, Desain, Develop, Deployment)",
     techStack: ["Next.js", "Node.js", "MySQL", "WhatsApp API", "VPS Linux"],
     features: [
@@ -17,16 +17,16 @@ export const projects: Project[] = [
       "Monitoring ketersediaan ruangan real-time untuk manajemen kapasitas pasien",
     ],
     impact:
-      "Mempercepat alur distribusi antar unit, mengurangi miskomunikasi, dan meningkatkan efisiensi administrasi rumah sakit secara keseluruhan.",
+      "Memangkas waktu birokrasi antar unit, menghilangkan miskomunikasi, dan meningkatkan efisiensi operasional rumah sakit secara signifikan.",
     category: "main",
     featured: true,
   },
   {
     id: "bio-farma",
-    title: "API Service – Enterprise Integration",
-    subtitle: "PT. Bio Farma – Bandung",
+    title: "Enterprise API Integration",
+    subtitle: "PT. Bio Farma (Persero)",
     description:
-      "Membangun API service menggunakan Node.js/Express untuk mengintegrasikan komunikasi antar-aplikasi internal, meningkatkan efisiensi alur data lintas sistem di perusahaan farmasi skala nasional.",
+      "Pembangunan jembatan komunikasi antar-aplikasi internal perusahaan farmasi nasional menggunakan arsitektur API yang aman dan efisien.",
     role: "Back-end Engineer",
     techStack: ["Node.js", "Express", "PostgreSQL", "REST API"],
     features: [
@@ -73,6 +73,26 @@ export const projects: Project[] = [
     impact:
       "Membantu masyarakat melakukan deteksi dini kanker kulit secara mandiri tanpa koneksi internet.",
     category: "ai",
+    featured: true,
+  },
+  {
+    id: "news-app",
+    title: "NewsApp – Flutter & BLoC",
+    subtitle: "Mobile Application with JWT & Push Notification",
+    description:
+      "Aplikasi berita modern yang dibangun menggunakan Flutter dengan state management BLoC. Fitur utama mencakup integrasi News API publik, pembacaan offline, autentikasi JWT, dan notifikasi push FCM.",
+    role: "Mobile Developer",
+    techStack: ["Flutter", "Dart", "BLoC", "REST API", "JWT", "Firebase FCM"],
+    features: [
+      "State management menggunakan BLoC untuk alur data yang terstruktur",
+      "Integrasi News API untuk berita real-time",
+      "Fitur offline reading untuk akses konten tanpa internet",
+      "Autentikasi aman dengan JWT",
+      "Push notifications menggunakan Firebase Cloud Messaging (FCM)",
+    ],
+    impact:
+      "Memberikan pengalaman membaca berita yang mulus dengan performa tinggi dan fitur notifikasi yang dipersonalisasi.",
+    category: "mobile",
     featured: true,
   },
   {

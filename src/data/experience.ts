@@ -39,6 +39,7 @@ export const experiences: Experience[] = [
       "Aplikasi reseller Momono Cake (Garut) bersama dosen pembimbing",
       "Sistem deteksi kanker kulit berbasis Android dengan Deep Learning (CNN + TensorFlow Lite)",
       "Sistem tracking keuangan pribadi berbasis web (Next.js + PostgreSQL)",
+      "Aplikasi NewsApp dengan Flutter & BLoC (JWT Auth, Push Notification, Offline Reading)",
       "Platform e-commerce clothing brand dengan integrasi pembayaran Midtrans",
       "Self-service ordering system dengan manajemen menu real-time & payment gateway",
       "Analisis data transportasi publik Bandung menggunakan Python (Pandas, Matplotlib)",
@@ -70,5 +71,53 @@ export const education: Education[] = [
     field: "Google, GoTo, Traveloka",
     period: "Feb 2024 – Jun 2024",
     status: "graduated",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    title: "Junior Web Programming",
+    issuer: "BNSP (National Professional Certification Agency)",
+    year: "2025",
+  },
+  {
+    title: "Mobile Development (Android)",
+    issuer: "Bangkit Academy — Google, GoTo, Traveloka",
+    year: "2024",
+  },
+];
+
+export const organizations: Organization[] = [
+  {
+    name: "Google Developer Student Club (GDSC) — Widyatama University",
+    role: "Activity Secretary",
+    period: "Sep 2023 – Jul 2024",
+    description: "Mengelola operasional administratif dan pelaksanaan event teknologi.",
+    highlights: [
+      "Merencanakan dan mengeksekusi 50+ event teknologi (TechTalks, workshop, hackathon)",
+      "Meningkatkan kehadiran TechTalk sebesar 20% melalui akuisisi partner strategis",
+      "Membawa GDSC Widyatama menjadi chapter teraktif ke-2 di Indonesia dari 86 chapter",
+    ],
+  },
+  {
+    name: "Informatics Engineering Student Association — Widyatama University",
+    role: "Public Relations",
+    period: "Nov 2021 – Aug 2022",
+    description: "Membangun hubungan eksternal dan keterlibatan mahasiswa.",
+    highlights: [
+      "Menginisiasi kolaborasi lintas komunitas yang meningkatkan engagement mahasiswa sebesar 30%",
+      "Memimpin penyusunan proposal dan rencana presentasi untuk event Techno 2022",
+    ],
+  },
+  {
+    name: "Saka SBH National — Jakarta, Indonesia",
+    role: "Event Organizer",
+    period: "May 2021 – Jan 2022",
+    description: "Mengorganisir event kesehatan berskala nasional.",
+    highlights: [
+      "Memimpin event Sharing United More Information dan SBH Leadership Training di BBPK Ciloto",
+      "Berkolaborasi dengan Kementerian Kesehatan RI dalam edukasi teknologi kesehatan",
+      "Berhasil mereduksi biaya logistik sebesar 30% dari estimasi awal",
+    ],
   },
 ];

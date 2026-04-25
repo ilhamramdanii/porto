@@ -6,7 +6,33 @@ import Button from "@/components/ui/Button";
 
 export default function Hero() {
   const handleScrollToPortfolio = () => {
-    document.getElementById("portofolio")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("portofolio");
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const startPosition = window.pageYOffset;
+      const targetPosition = elementPosition + startPosition - offset;
+      const distance = targetPosition - startPosition;
+      let startTime: number | null = null;
+      const duration = 1000;
+
+      const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      const animation = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const nextScrollY = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, nextScrollY);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      };
+
+      requestAnimationFrame(animation);
+    }
   };
 
   return (
@@ -39,9 +65,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4"
         >
-          Fullstack Developer
+          Building Scalable Systems for
           <br />
-          <span className="text-blue-600 dark:text-blue-400">&amp; System Builder</span>
+          <span className="text-blue-600 dark:text-blue-400">Real-World Problems</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -51,10 +77,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10"
         >
-          Fullstack Developer dengan pengalaman 1+ tahun membangun sistem berbasis web untuk sektor{" "}
-          <span className="text-gray-900 dark:text-white font-medium">kesehatan</span>,{" "}
-          <span className="text-gray-900 dark:text-white font-medium">farmasi</span>. Spesialis
-          dalam TypeScript, Next.js, Laravel, dan Node.js.
+          Saya seorang <span className="text-gray-900 dark:text-white font-medium">Fullstack Developer</span> yang berfokus pada digitalisasi proses bisnis di sektor kesehatan & farmasi. Mengubah logika kompleks menjadi solusi digital yang elegan dan efisien.
         </motion.p>
 
         {/* CTA Buttons */}

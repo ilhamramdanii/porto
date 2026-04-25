@@ -24,6 +24,7 @@ export const skills: Skill[] = [
   // Mobile
   { name: "Android", icon: "SiAndroid", category: "mobile" },
   { name: "Kotlin", icon: "SiKotlin", category: "mobile" },
+  { name: "Flutter", icon: "SiFlutter", category: "mobile" },
   { name: "Jetpack Compose", icon: "SiJetpackcompose", category: "mobile" },
   { name: "ML Kit", icon: "SiGoogle", category: "mobile" },
   { name: "TensorFlow Lite", icon: "SiTensorflow", category: "mobile" },

@@ -26,7 +26,7 @@ export interface Experience {
   period: string;
   description: string;
   techStack: string[];
-  type: "work" | "internship" | "freelance";
+  type: "work" | "internship" | "freelance" | "organization";
   highlights?: string[];
 }
 
@@ -37,4 +37,19 @@ export interface Education {
   period: string;
   gpa?: string;
   status: "active" | "graduated";
+}
+
+export interface Certification {
+  title: string;
+  issuer: string;
+  year: string;
+  description?: string;
+}
+
+export interface Organization {
+  name: string;
+  role: string;
+  period: string;
+  description: string;
+  highlights?: string[];
 }

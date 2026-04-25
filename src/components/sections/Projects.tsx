@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ui/ProjectCard";
+import Button from "@/components/ui/Button";
+import { FiPlus, FiMinus } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 
 const filters = [
@@ -18,11 +20,14 @@ type FilterKey = (typeof filters)[number]["key"];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered =
     activeFilter === "all"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
+
+  const displayedProjects = showAll ? filtered : filtered.slice(0, 2);
 
   return (
     <section id="portofolio" className="py-24 bg-white dark:bg-gray-950">
@@ -57,7 +62,10 @@ export default function Projects() {
           {filters.map(({ key, label }) => (
             <button
               key={key}
-              onClick={() => setActiveFilter(key)}
+              onClick={() => {
+                setActiveFilter(key);
+                setShowAll(false); // Reset showAll saat ganti filter
+              }}
               className={cn(
                 "px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
                 activeFilter === key
@@ -71,11 +79,41 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {filtered.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <AnimatePresence mode="popLayout">
+            {displayedProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProjectCard project={project} index={index} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
+
+        {filtered.length > 2 && (
+          <motion.div 
+            layout
+            className="flex justify-center"
+          >
+            <Button 
+              variant="outline" 
+              onClick={() => setShowAll(!showAll)}
+              className="gap-2"
+            >
+              {showAll ? (
+                <>Tampilkan Lebih Sedikit <FiMinus /></>
+              ) : (
+                <>Lihat Semua Proyek <FiPlus /></>
+              )}
+            </Button>
+          </motion.div>
+        )}
 
         {filtered.length === 0 && (
           <div className="text-center py-16 text-gray-400 dark:text-gray-600">

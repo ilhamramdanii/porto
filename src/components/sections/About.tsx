@@ -73,25 +73,12 @@ export default function About() {
           >
             <div className="space-y-4">
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Fullstack Developer dengan pengalaman 1+ tahun membangun sistem berbasis web untuk
-                sektor{" "}
-                <strong className="text-gray-900 dark:text-white">kesehatan</strong>,{" "}
-                <strong className="text-gray-900 dark:text-white">farmasi</strong>, dan{" "}
-                <strong className="text-gray-900 dark:text-white">pemerintahan</strong>. Telah
-                mengembangkan 10+ sistem dan aplikasi produktif mulai dari sistem manajemen rumah
-                sakit, e-commerce, hingga aplikasi mobile berbasis deep learning.
+                Halo! Saya <strong className="text-gray-900 dark:text-white">Ilham</strong>. Saya percaya bahwa teknologi terbaik adalah teknologi yang memberikan solusi nyata. Dengan latar belakang membangun sistem di sektor <strong className="text-gray-900 dark:text-white">kesehatan, farmasi, dan pemerintahan</strong>, saya berfokus pada otomasi proses yang kompleks menjadi aplikasi yang intuitif.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 Spesialis dalam{" "}
-                <strong className="text-gray-900 dark:text-white">TypeScript, Next.js, Laravel</strong>
-                , dan <strong className="text-gray-900 dark:text-white">Node.js</strong>. Terbiasa
-                mengelola full SDLC dari analisis kebutuhan hingga deployment di VPS, serta
-                berkolaborasi langsung dengan stakeholder lintas divisi.
-              </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Spesialisasi:{" "}
-                <strong className="text-gray-900 dark:text-white">Web-based System Development</strong>
-                , Business Process Automation, Mobile Development, dan Data Analysis.
+                <strong className="text-gray-900 dark:text-white">TypeScript, Next.js, Laravel, Flutter</strong>
+                , dan <strong className="text-gray-900 dark:text-white">Node.js</strong>. Saya menikmati proses mengelola seluruh siklus hidup pengembangan perangkat lunak—mulai dari membedah kebutuhan stakeholder hingga memastikan sistem berjalan stabil di server produksi.
               </p>
             </div>
 

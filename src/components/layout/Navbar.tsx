@@ -35,7 +35,39 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     const id = href.replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const startPosition = window.pageYOffset;
+      const targetPosition = elementPosition + startPosition - offset;
+      const distance = targetPosition - startPosition;
+      let startTime: number | null = null;
+      const duration = 1000; // Durasi dalam ms (lebih lama = lebih halus)
+
+      // Fungsi Ease-In-Out Quad
+      const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      const animation = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const nextScrollY = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+        
+        window.scrollTo(0, nextScrollY);
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
+    }
   };
 
   return (
