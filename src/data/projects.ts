@@ -17,7 +17,7 @@ export const projects: Project[] = [
       "Monitoring ketersediaan ruangan real-time untuk manajemen kapasitas pasien",
     ],
     impact:
-      "Memangkas waktu birokrasi antar unit, mengurangi miskomunikasi, dan meningkatkan efisiensi operasional rumah sakit secara signifikan.",
+      "Memangkas waktu birokrasi antar unit, mengurangi miskomunikasi, dan meningkatkan efisiensi operasional rumah sakit.",
     category: "main",
     featured: true,
   },
