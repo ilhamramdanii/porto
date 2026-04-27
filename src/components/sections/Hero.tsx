@@ -63,22 +63,27 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4"
         >
-          Building Scalable Systems for
-          <br />
-          <span className="text-blue-600 dark:text-blue-400">Real-World Problems</span>
+          Hey, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">M Ilham Ramdani</span>
         </motion.h1>
 
         {/* Sub-headline */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10"
+          className="max-w-2xl mx-auto space-y-4 mb-10"
         >
-          Saya seorang <span className="text-gray-900 dark:text-white font-medium">Fullstack Developer</span> yang berfokus pada digitalisasi proses bisnis di sektor kesehatan & farmasi. Mengubah logika kompleks menjadi solusi digital yang elegan dan efisien.
-        </motion.p>
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
+            But you can call me <span className="text-gray-900 dark:text-white font-semibold border-b-2 border-blue-500/30">Ilham</span>.
+          </p>
+          <p className="text-xl sm:text-3xl text-gray-500 dark:text-gray-500 font-medium leading-tight">
+            I’m a <span className="text-gray-900 dark:text-white">Fullstack Developer</span>
+            <br className="hidden sm:block" />
+            <span className="text-lg sm:text-xl font-normal opacity-80">who loves turning complex problems into simple solutions.</span>
+          </p>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div

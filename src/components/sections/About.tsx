@@ -35,28 +35,32 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-8"
           >
-            {/* Foto profil */}
-            <div className="relative w-48 h-48 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-xl shadow-blue-600/20 ring-4 ring-blue-100 dark:ring-blue-900/50">
-              <Image
-                src="/images/M Ilham Ramdani (1).png"
-                alt="M Ilham Ramdani"
-                fill
-                className="object-cover object-top"
-                priority
-              />
+            {/* Foto profil with decorative background */}
+            <div className="relative w-56 h-56 mx-auto md:mx-0">
+              <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-6 opacity-20 animate-pulse" />
+              <div className="absolute inset-0 bg-blue-400 rounded-2xl -rotate-3 opacity-10" />
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800 bg-white dark:bg-gray-800">
+                <Image
+                  src="/images/M Ilham Ramdani (1).png"
+                  alt="M Ilham Ramdani"
+                  fill
+                  className="object-cover object-top hover:scale-110 transition-transform duration-500"
+                  priority
+                />
+              </div>
             </div>
 
-            {/* Quick info */}
-            <div className="space-y-3">
+            {/* Quick info badges */}
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               {[
-                { icon: <FiMapPin />, text: "Cianjur, Indonesia" },
-                { icon: <FiBook />, text: "S1 Teknik Informatika – Universitas Widyatama (IPK 3.52)" },
-                { icon: <FiCode />, text: "Fullstack Developer | System Builder" },
+                { icon: <FiMapPin />, text: "Cianjur, ID" },
+                { icon: <FiBook />, text: "Techno-Enthusiast" },
+                { icon: <FiCode />, text: "System Architect" },
               ].map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">{icon}</span>
+                <div key={text} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+                  <span className="text-blue-600 dark:text-blue-400">{icon}</span>
                   {text}
                 </div>
               ))}
@@ -72,13 +76,14 @@ export default function About() {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Halo! Saya <strong className="text-gray-900 dark:text-white">Ilham</strong>. Saya percaya bahwa teknologi terbaik adalah teknologi yang memberikan solusi nyata. Dengan latar belakang membangun sistem di sektor <strong className="text-gray-900 dark:text-white">kesehatan, farmasi, dan pemerintahan</strong>, saya berfokus pada otomasi proses yang kompleks menjadi aplikasi yang intuitif.
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                Ketertarikan saya pada dunia pemrograman dimulai dari rasa penasaran: <span className="text-blue-600 dark:text-blue-400 font-medium">"Gimana sih cara sebuah aplikasi bisa mempermudah pekerjaan manusia?"</span>
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Spesialis dalam{" "}
-                <strong className="text-gray-900 dark:text-white">TypeScript, Next.js, Laravel, Flutter</strong>
-                , dan <strong className="text-gray-900 dark:text-white">Node.js</strong>. Saya menikmati proses mengelola seluruh siklus hidup pengembangan perangkat lunak—mulai dari membedah kebutuhan stakeholder hingga memastikan sistem berjalan stabil di server produksi.
+                Sejak itu, saya mendedikasikan waktu saya untuk mempelajari cara membangun sistem yang bukan cuma "jalan", tapi juga efisien dan enak digunakan. Saya senang mengeksplorasi teknologi baru, mulai dari <strong className="text-gray-900 dark:text-white">Next.js</strong> untuk tampilan yang interaktif, sampai <strong className="text-gray-900 dark:text-white">Node.js</strong> dan <strong className="text-gray-900 dark:text-white">Go</strong> untuk logika back-end yang tangguh.
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Diluar urusan kode, saya adalah orang yang senang berkolaborasi dan bertukar ide. Bagi saya, komunikasi yang baik sama pentingnya dengan menulis kode yang bersih. Saat ini, saya fokus membangun solusi digital untuk sektor kesehatan dan farmasi, mengubah proses manual yang rumit menjadi sistem yang serba otomatis.
               </p>
             </div>
 
