@@ -7,7 +7,7 @@ export interface Project {
   techStack: string[];
   features: string[];
   impact: string;
-  category: "main" | "backend" | "fullstack" | "ai" | "mobile";
+  category: "main" | "backend" | "fullstack" | "ai" | "mobile" | "healthcare" | "enterprise";
   imageUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
@@ -17,7 +17,14 @@ export interface Project {
 export interface Skill {
   name: string;
   icon: string;
-  category: "frontend" | "backend" | "database" | "infrastructure" | "mobile";
+  level: "primary" | "proficient" | "exploring";
+}
+
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  company?: string;
 }
 
 export interface Experience {

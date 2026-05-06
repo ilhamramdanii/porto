@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import {
-  SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss3,
+  SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss,
   SiNodedotjs, SiExpress, SiLaravel, SiPhp, SiPython,
   SiMysql, SiPostgresql,
   SiAndroid, SiKotlin,
-  SiPostman, SiGit, SiLinux, SiTensorflow, SiWhatsapp, SiGoogle,
+  SiPostman, SiGit, SiLinux, SiTensorflow, SiWhatsapp, SiGoogle, SiGo, SiFlutter,
 } from "react-icons/si";
-import { skills, skillCategories } from "@/data/skills";
+import { skills, skillTiers } from "@/data/skills";
 
 const iconMap: Record<string, React.ReactElement> = {
   SiNextdotjs: <SiNextdotjs />,
@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ReactElement> = {
   SiJavascript: <SiJavascript />,
   SiTailwindcss: <SiTailwindcss />,
   SiHtml5: <SiHtml5 />,
-  SiCss3: <SiCss3 />,
+  SiCss: <SiCss />,
   SiNodedotjs: <SiNodedotjs />,
   SiExpress: <SiExpress />,
   SiLaravel: <SiLaravel />,
@@ -34,6 +34,8 @@ const iconMap: Record<string, React.ReactElement> = {
   SiLinux: <SiLinux />,
   SiTensorflow: <SiTensorflow />,
   SiWhatsapp: <SiWhatsapp />,
+  SiGo: <SiGo />,
+  SiFlutter: <SiFlutter />,
 };
 
 export default function Skills() {
@@ -48,45 +50,50 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Keahlian
+            Tech Stack
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Tech Stack
+            Tools I rely on and how I use them.
           </h2>
           <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Teknologi yang saya gunakan untuk membangun sistem yang efisien dan scalable.
+            Not just a list of buzzwords. Here&apos;s what I actually build with, day to day.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map(({ key, label }, catIndex) => {
-            const categorySkills = skills.filter((s) => s.category === key);
+        <div className="grid gap-12">
+          {skillTiers.map(({ key, label, description }, tierIndex) => {
+            const tierSkills = skills.filter((s) => s.level === key);
             return (
               <motion.div
                 key={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-6"
+                transition={{ duration: 0.5, delay: tierIndex * 0.1 }}
+                className="space-y-6"
               >
-                <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wider mb-4">
-                  {label}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {categorySkills.map((skill, i) => (
+                <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {label}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 pb-0.5">
+                    {description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  {tierSkills.map((skill, i) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: catIndex * 0.1 + i * 0.05 }}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-sm transition-all duration-200 cursor-default group"
+                      transition={{ duration: 0.3, delay: tierIndex * 0.1 + i * 0.05 }}
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200 cursor-default group"
                     >
-                      <span className="text-lg text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <span className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {iconMap[skill.icon]}
                       </span>
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                         {skill.name}
                       </span>
                     </motion.div>

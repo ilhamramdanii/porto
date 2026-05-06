@@ -76,14 +76,13 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Kontak
+            Contact
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Mari Berdiskusi
+            Let&apos;s build something meaningful.
           </h2>
           <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Mari berdiskusi tentang bagaimana saya bisa memberikan{" "}
-            <strong className="text-gray-700 dark:text-gray-300">impact</strong> untuk perusahaan Anda.
+            Whether you&apos;re looking for a fullstack developer, a technical collaborator, or someone to untangle a complex system I&apos;d love to hear what you&apos;re working on.
           </p>
         </motion.div>
 
@@ -97,8 +96,7 @@ export default function Contact() {
             className="md:col-span-2 space-y-4"
           >
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              Saya terbuka untuk peluang baru, baik full-time, freelance, maupun kolaborasi proyek.
-              Jangan ragu untuk menghubungi saya!
+              I&apos;m currently open to full-time roles, freelance projects, and long-term collaborations. I typically respond within 24 hours.
             </p>
 
             <div className="space-y-3 pt-2">

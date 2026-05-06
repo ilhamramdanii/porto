@@ -5,8 +5,8 @@ import { FiDownload, FiArrowRight } from "react-icons/fi";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
-  const handleScrollToPortfolio = () => {
-    const element = document.getElementById("portofolio");
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -55,7 +55,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/50 text-green-700 dark:text-green-400 text-sm font-medium mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          Available for work
+          Available for collaboration
         </motion.div>
 
         {/* Headline */}
@@ -63,9 +63,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-4"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6 leading-tight"
         >
-          Hey, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">M Ilham Ramdani</span>
+          Fullstack Developer and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">tech enthusiast.</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -73,15 +73,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto space-y-4 mb-10"
+          className="max-w-3xl mx-auto space-y-4 mb-10"
         >
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
-            But you can call me <span className="text-gray-900 dark:text-white font-semibold border-b-2 border-blue-500/30">Ilham</span>.
-          </p>
-          <p className="text-xl sm:text-3xl text-gray-500 dark:text-gray-500 font-medium leading-tight">
-            I’m a <span className="text-gray-900 dark:text-white">Fullstack Developer</span>
-            <br className="hidden sm:block" />
-            <span className="text-lg sm:text-xl font-normal opacity-80">who loves turning complex problems into simple solutions.</span>
+          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+            I build systems that make hospitals run smoother, businesses move faster and actually make people&apos;s lives easier.
           </p>
         </motion.div>
 
@@ -90,16 +85,24 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center"
+          className="flex flex-col sm:flex-row gap-3 justify-center items-center"
         >
-          <Button size="lg" onClick={handleScrollToPortfolio}>
-            Lihat Portofolio <FiArrowRight />
+          <Button size="lg" onClick={() => scrollToSection("portofolio")}>
+            See My Work <FiArrowRight />
           </Button>
           <a href="/docs/CV-M%20ILHAM%20RAMDANI.pdf" download="CV-M Ilham Ramdani.pdf">
             <Button variant="outline" size="lg">
-              <FiDownload /> Unduh CV
+              <FiDownload /> Download CV
             </Button>
           </a>
+          <Button 
+            variant="ghost" 
+            size="lg" 
+            className="text-blue-600 dark:text-blue-400"
+            onClick={() => scrollToSection("kontak")}
+          >
+            Book a Call
+          </Button>
         </motion.div>
 
         {/* Stats */}
@@ -107,16 +110,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
         >
           {[
-            { value: "10+", label: "Sistem & Aplikasi" },
-            { value: "5+", label: "Tech Stack" },
-            { value: "1+", label: "Tahun Pengalaman" },
+            { value: "10+", label: "Production systems built" },
+            { value: "2", label: "BUMN & hospital clients" },
+            { value: "Top 200", label: "of 18,000+ at IDT 2022" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">{stat.label}</p>
+            <div key={stat.label} className="text-center p-4 rounded-2xl bg-gray-50/50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800">
+              <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">{stat.label}</p>
             </div>
           ))}
         </motion.div>

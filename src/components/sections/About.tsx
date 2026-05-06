@@ -21,10 +21,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Tentang Saya
+            About Me
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Siapa Saya?
+            The person behind the code.
           </h2>
         </motion.div>
 
@@ -35,13 +35,13 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-8 flex flex-col items-center md:items-start"
           >
             {/* Foto profil with decorative background */}
-            <div className="relative w-56 h-56 mx-auto md:mx-0">
-              <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-6 opacity-20 animate-pulse" />
-              <div className="absolute inset-0 bg-blue-400 rounded-2xl -rotate-3 opacity-10" />
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800 bg-white dark:bg-gray-800">
+            <div className="relative w-72 h-72 sm:w-96 sm:h-96 mx-auto md:mx-0">
+              <div className="absolute inset-0 bg-blue-600 rounded-3xl rotate-6 opacity-20 animate-pulse" />
+              <div className="absolute inset-0 bg-blue-400 rounded-3xl -rotate-3 opacity-10" />
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800 bg-white dark:bg-gray-800">
                 <Image
                   src="/images/M Ilham Ramdani (1).png"
                   alt="M Ilham Ramdani"
@@ -53,18 +53,19 @@ export default function About() {
             </div>
 
             {/* Quick info badges */}
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+            {/* <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               {[
-                { icon: <FiMapPin />, text: "Cianjur, ID" },
-                { icon: <FiBook />, text: "Techno-Enthusiast" },
+                { icon: <FiMapPin />, text: "Healthcare Tech" },
                 { icon: <FiCode />, text: "System Architect" },
+                { icon: <FiCode />, text: "API Integration" },
+                { icon: <FiBook />, text: "Open to Collaborate" },
               ].map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+                <div key={text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm">
                   <span className="text-blue-600 dark:text-blue-400">{icon}</span>
                   {text}
                 </div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right: Description & Education */}
@@ -77,13 +78,13 @@ export default function About() {
           >
             <div className="space-y-4">
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-                Ketertarikan saya pada dunia pemrograman dimulai dari rasa penasaran: <span className="text-blue-600 dark:text-blue-400 font-medium">"Gimana sih cara sebuah aplikasi bisa mempermudah pekerjaan manusia?"</span>
+                My curiosity started with a simple question: <span className="text-blue-600 dark:text-blue-400 font-medium italic">why do people still fill out paper forms when computers exist?</span> That question sent me down a rabbit hole of building thing first small scripts, then full systems, and now production-grade software used by real hospital staff every day.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Sejak itu, saya mendedikasikan waktu saya untuk mempelajari cara membangun sistem yang bukan cuma "jalan", tapi juga efisien dan enak digunakan. Saya senang mengeksplorasi teknologi baru, mulai dari <strong className="text-gray-900 dark:text-white">Next.js</strong> untuk tampilan yang interaktif, sampai <strong className="text-gray-900 dark:text-white">Node.js</strong> dan <strong className="text-gray-900 dark:text-white">Go</strong> untuk logika back-end yang tangguh.
+                I gravitate toward complex, real-world problems the kind where a well-designed system can genuinely save someone hours of frustrating manual work. My stack leans heavily on <strong className="text-gray-900 dark:text-white">Next.js</strong> and <strong className="text-gray-900 dark:text-white">Node.js</strong> for production systems, with <strong className="text-gray-900 dark:text-white">Go</strong> for performance-critical backends. I believe clean architecture matters as much as working code.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Diluar urusan kode, saya adalah orang yang senang berkolaborasi dan bertukar ide. Bagi saya, komunikasi yang baik sama pentingnya dengan menulis kode yang bersih. Saat ini, saya fokus membangun solusi digital untuk sektor kesehatan dan farmasi, mengubah proses manual yang rumit menjadi sistem yang serba otomatis.
+                Outside of coding, I care about communication as much as clean commits. I&apos;ve worked directly with hospital stakeholders, cross-division teams, and startup investors, so I know how to translate technical ideas into plain language. Currently open to full-time roles, freelance projects, or technical collaborations.
               </p>
             </div>
 

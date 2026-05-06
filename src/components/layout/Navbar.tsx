@@ -8,15 +8,16 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#beranda", label: "Beranda" },
-  { href: "#tentang", label: "Tentang Saya" },
-  { href: "#keahlian", label: "Keahlian" },
-  { href: "#pengalaman", label: "Pengalaman" },
-  { href: "#portofolio", label: "Portofolio" },
-  { href: "#kontak", label: "Kontak" },
+  { href: "#beranda", label: "Home" },
+  { href: "#tentang", label: "About" },
+  { href: "#keahlian", label: "Skills" },
+  { href: "#pengalaman", label: "Experience" },
+  { href: "#portofolio", label: "Projects" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#kontak", label: "Contact" },
 ];
 
-const sectionIds = ["beranda", "tentang", "keahlian", "pengalaman", "portofolio", "kontak"];
+const sectionIds = ["beranda", "tentang", "keahlian", "pengalaman", "portofolio", "testimonials", "kontak"];
 
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -26,6 +27,7 @@ export default function Navbar() {
   const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);

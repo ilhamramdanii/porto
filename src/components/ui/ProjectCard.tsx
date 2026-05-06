@@ -7,7 +7,8 @@ import Badge from "./Badge";
 import { FiExternalLink, FiGithub, FiCheckCircle } from "react-icons/fi";
 
 const categoryConfig = {
-  main: { label: "Proyek Utama", variant: "blue" as const },
+  main: { label: "Main Project", variant: "blue" as const },
+  enterprise: { label: "Enterprise", variant: "green" as const },
   backend: { label: "Backend / API", variant: "green" as const },
   fullstack: { label: "Fullstack", variant: "purple" as const },
   ai: { label: "AI / ML", variant: "orange" as const },
@@ -20,7 +21,12 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const cat = categoryConfig[project.category];
+  // Defensive category resolution
+  const categoryKey = project.category as keyof typeof categoryConfig;
+  const cat = categoryConfig[categoryKey] || {
+    label: project.category.charAt(0).toUpperCase() + project.category.slice(1),
+    variant: "default" as const,
+  };
 
   return (
     <motion.div

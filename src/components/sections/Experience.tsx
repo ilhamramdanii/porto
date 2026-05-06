@@ -25,10 +25,10 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Pengalaman
+            Experience
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Riwayat Pekerjaan
+            Where I&apos;ve built, shipped, and delivered.
           </h2>
         </motion.div>
 

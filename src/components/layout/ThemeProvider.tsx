@@ -28,34 +28,41 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 
-  const applyTheme = useCallback((t: Theme) => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const resolved = resolve(t, prefersDark);
-    document.documentElement.classList.toggle("dark", resolved === "dark");
-    setResolvedTheme(resolved);
-  }, []);
-
   useEffect(() => {
+    // Initial sync
     const stored = (localStorage.getItem("theme") as Theme) || "system";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(stored);
-    applyTheme(stored);
+    
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const resolved = resolve(stored, prefersDark);
+    setResolvedTheme(resolved);
 
+    // Watch for system theme changes
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
       const current = (localStorage.getItem("theme") as Theme) || "system";
-      if (current === "system") applyTheme("system");
+      if (current === "system") {
+        const res = resolve("system", mq.matches);
+        document.documentElement.classList.toggle("dark", res === "dark");
+        setResolvedTheme(res);
+      }
     };
+    
     mq.addEventListener("change", handleChange);
     return () => mq.removeEventListener("change", handleChange);
-  }, [applyTheme]);
+  }, []);
 
   const setTheme = useCallback(
     (t: Theme) => {
       setThemeState(t);
       localStorage.setItem("theme", t);
-      applyTheme(t);
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const resolved = resolve(t, prefersDark);
+      document.documentElement.classList.toggle("dark", resolved === "dark");
+      setResolvedTheme(resolved);
     },
-    [applyTheme]
+    []
   );
 
   return (

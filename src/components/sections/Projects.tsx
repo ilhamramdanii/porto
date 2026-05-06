@@ -9,10 +9,10 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 
 const filters = [
-  { key: "all", label: "Semua" },
-  { key: "main", label: "Proyek Utama" },
-  { key: "backend", label: "Backend / API" },
+  { key: "all", label: "All" },
   { key: "fullstack", label: "Fullstack" },
+  { key: "enterprise", label: "Enterprise" },
+  { key: "mobile", label: "Mobile" },
   { key: "ai", label: "AI / ML" },
 ] as const;
 
@@ -27,7 +27,7 @@ export default function Projects() {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-  const displayedProjects = showAll ? filtered : filtered.slice(0, 2);
+  const displayedProjects = showAll ? filtered : filtered.slice(0, 4);
 
   return (
     <section id="portofolio" className="py-24 bg-white dark:bg-gray-950">
@@ -40,14 +40,13 @@ export default function Projects() {
           className="text-center mb-12"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Portofolio
+            Portfolio
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Proyek yang Pernah Dibangun
+            Things I&apos;ve built that actually get used.
           </h2>
           <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Kumpulan proyek nyata yang berdampak langsung pada digitalisasi proses bisnis dan
-            otomatisasi sistem.
+            Real systems, real clients, real impact not just side projects.
           </p>
         </motion.div>
 

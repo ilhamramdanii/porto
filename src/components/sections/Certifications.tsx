@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiAward, FiExternalLink } from "react-icons/fi";
+import { FiAward } from "react-icons/fi";
 import { certifications } from "@/data/experience";
 
 export default function Certifications() {
@@ -16,10 +16,10 @@ export default function Certifications() {
           className="text-center mb-16"
         >
           <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Pencapaian
+            Achievements
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-            Lisensi & Sertifikasi
+            Licenses & Certifications
           </h2>
         </motion.div>
 
