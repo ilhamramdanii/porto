@@ -23,13 +23,6 @@ export const experiences: Experience[] = [
       "Linux VPS",
     ],
     type: "internship",
-    highlights: [
-      "Built a real-time WhatsApp notification microservice in TypeScript.",
-      "Generating PDFs across 27 document types on demand.",
-      "Implementing multi-level approval workflows.",
-      "Integrating with the hospital's internal HR system via SSO.",
-      "Handled every project solo from architecture decisions to writing the last line of code.",
-    ],
   },
   {
     company: "PT. Bio Farma (Persero)",
