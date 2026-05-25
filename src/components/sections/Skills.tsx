@@ -38,10 +38,17 @@ const iconMap: Record<string, React.ReactElement> = {
   SiFlutter: <SiFlutter />,
 };
 
+const tierAccent = {
+  primary: "border-l-blue-500 dark:border-l-blue-400",
+  proficient: "border-l-blue-300 dark:border-l-blue-600",
+  exploring: "border-l-gray-300 dark:border-l-neutral-600",
+} as const;
+
 export default function Skills() {
   return (
-    <section id="keahlian" className="py-24 bg-white dark:bg-gray-950">
+    <section id="keahlian" className="py-24 bg-white dark:bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Section header — centered with accent line */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,9 +56,6 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Tech Stack
-          </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
             Tools I rely on and how I use them.
           </h2>
@@ -60,7 +64,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid gap-12">
+        <div className="grid gap-10">
           {skillTiers.map(({ key, label, description }, tierIndex) => {
             const tierSkills = skills.filter((s) => s.level === key);
             return (
@@ -70,27 +74,27 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: tierIndex * 0.1 }}
-                className="space-y-6"
+                className={`pl-4 border-l-2 ${tierAccent[key as keyof typeof tierAccent]}`}
               >
-                <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <div className="flex flex-col md:flex-row md:items-end gap-1 md:gap-4 mb-5">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                     {label}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 pb-0.5">
                     {description}
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3">
                   {tierSkills.map((skill, i) => (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.85 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: tierIndex * 0.1 + i * 0.05 }}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200 cursor-default group"
+                      transition={{ duration: 0.3, delay: tierIndex * 0.05 + i * 0.04 }}
+                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md hover:shadow-blue-500/5 transition-all duration-200 cursor-default group"
                     >
-                      <span className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <span className="text-xl text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {iconMap[skill.icon]}
                       </span>
                       <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">

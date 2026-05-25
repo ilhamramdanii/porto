@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiDownload, FiArrowRight } from "react-icons/fi";
+import { FiDownload, FiArrowRight, FiPhone } from "react-icons/fi";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
@@ -38,13 +38,15 @@ export default function Hero() {
   return (
     <section
       id="beranda"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950"
     >
       {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]" />
 
-      {/* Blue glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 dark:bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Violet glow — primary */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 dark:bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
+      {/* Soft secondary glow */}
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-blue-400/5 dark:bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         {/* Status badge */}
@@ -65,7 +67,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6 leading-tight"
         >
-          Fullstack Developer and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">tech enthusiast.</span>
+          Fullstack Developer and{" "}
+          <span className="text-blue-600 dark:text-blue-400">
+            tech enthusiast.
+          </span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -80,7 +85,7 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons — hierarchy: See My Work → Book a Call → Download CV */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,19 +95,14 @@ export default function Hero() {
           <Button size="lg" onClick={() => scrollToSection("portofolio")}>
             See My Work <FiArrowRight />
           </Button>
+          <Button variant="outline" size="lg" onClick={() => scrollToSection("kontak")}>
+            <FiPhone size={18} /> Book a Call
+          </Button>
           <a href="/docs/CV-M%20ILHAM%20RAMDANI.pdf" download="CV-M Ilham Ramdani.pdf">
-            <Button variant="outline" size="lg">
+            <Button variant="ghost" size="lg">
               <FiDownload /> Download CV
             </Button>
           </a>
-          <Button 
-            variant="ghost" 
-            size="lg" 
-            className="text-blue-600 dark:text-blue-400"
-            onClick={() => scrollToSection("kontak")}
-          >
-            Book a Call
-          </Button>
         </motion.div>
 
         {/* Stats */}
@@ -110,14 +110,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
+          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-0 max-w-2xl mx-auto"
         >
           {[
             { value: "10+", label: "Production systems built" },
             { value: "2", label: "BUMN & hospital clients" },
             { value: "Top 200", label: "of 18,000+ at IDT 2022" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center p-4 rounded-2xl bg-gray-50/50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800">
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              className="flex-1 text-center px-6 py-4 relative"
+            >
+              {i > 0 && (
+                <div className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 h-10 w-px bg-gray-200 dark:bg-neutral-700" />
+              )}
               <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
               <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">{stat.label}</p>
             </div>
@@ -132,13 +138,13 @@ export default function Hero() {
         transition={{ delay: 1, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-gray-400 dark:text-gray-600">Scroll ke bawah</span>
+        <span className="text-xs text-gray-400 dark:text-gray-600 font-mono tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-5 h-8 rounded-full border-2 border-gray-300 dark:border-gray-700 flex items-start justify-center pt-1.5"
+          className="w-5 h-8 rounded-full border-2 border-gray-300 dark:border-neutral-700 flex items-start justify-center pt-1.5"
         >
-          <div className="w-1 h-2 rounded-full bg-gray-400 dark:bg-gray-600" />
+          <div className="w-1 h-2 rounded-full bg-gray-400 dark:bg-neutral-600" />
         </motion.div>
       </motion.div>
     </section>

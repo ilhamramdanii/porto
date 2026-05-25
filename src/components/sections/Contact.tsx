@@ -10,10 +10,10 @@ import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const schema = z.object({
-  name: z.string().min(2, "Nama minimal 2 karakter"),
-  email: z.string().email("Format email tidak valid"),
-  subject: z.string().min(5, "Subject minimal 5 karakter"),
-  message: z.string().min(10, "Pesan minimal 10 karakter"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -66,23 +66,21 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontak" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="kontak" className="py-24 bg-gray-50 dark:bg-neutral-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Section header — left-aligned */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Contact
-          </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
             Let&apos;s build something meaningful.
           </h2>
-          <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Whether you&apos;re looking for a fullstack developer, a technical collaborator, or someone to untangle a complex system I&apos;d love to hear what you&apos;re working on.
+          <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl">
+            Whether you&apos;re looking for a fullstack developer, a technical collaborator, or someone to untangle a complex system — I&apos;d love to hear what you&apos;re working on.
           </p>
         </motion.div>
 
@@ -106,7 +104,7 @@ export default function Contact() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-sm transition-all duration-200 group"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-800/50 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-sm transition-all duration-200 group"
                 >
                   <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">{icon}</span>
                   <div>
@@ -136,13 +134,13 @@ export default function Contact() {
               >
                 <FiCheckCircle className="text-green-500" size={48} />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Pesan Terkirim!
+                  Message Sent!
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 max-w-sm">
-                  Terima kasih telah menghubungi saya. Saya akan segera membalas pesan Anda.
+                  Thanks for reaching out. I&apos;ll get back to you as soon as possible.
                 </p>
                 <Button variant="outline" onClick={() => setStatus("idle")}>
-                  Kirim Pesan Lain
+                  Send Another Message
                 </Button>
               </motion.div>
             ) : (
@@ -150,16 +148,16 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                      Nama
+                      Name
                     </label>
                     <input
                       {...register("name")}
-                      placeholder="Nama Anda"
+                      placeholder="Your name"
                       className={cn(
-                        "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
+                        "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
                         errors.name
                           ? "border-red-400 focus:border-red-500"
-                          : "border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500"
+                          : "border-gray-200 dark:border-neutral-700 focus:border-blue-500 dark:focus:border-blue-500"
                       )}
                     />
                     {errors.name && (
@@ -175,10 +173,10 @@ export default function Contact() {
                       type="email"
                       placeholder="email@example.com"
                       className={cn(
-                        "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
+                        "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
                         errors.email
                           ? "border-red-400 focus:border-red-500"
-                          : "border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500"
+                          : "border-gray-200 dark:border-neutral-700 focus:border-blue-500 dark:focus:border-blue-500"
                       )}
                     />
                     {errors.email && (
@@ -193,12 +191,12 @@ export default function Contact() {
                   </label>
                   <input
                     {...register("subject")}
-                    placeholder="Topik diskusi"
+                    placeholder="What's this about?"
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
+                      "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors",
                       errors.subject
                         ? "border-red-400 focus:border-red-500"
-                        : "border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500"
+                        : "border-gray-200 dark:border-neutral-700 focus:border-blue-500 dark:focus:border-blue-500"
                     )}
                   />
                   {errors.subject && (
@@ -208,17 +206,17 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                    Pesan
+                    Message
                   </label>
                   <textarea
                     {...register("message")}
                     rows={5}
-                    placeholder="Tulis pesan Anda di sini..."
+                    placeholder="Tell me what you're working on..."
                     className={cn(
-                      "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors resize-none",
+                      "w-full px-4 py-2.5 rounded-lg border text-sm bg-white dark:bg-neutral-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 outline-none transition-colors resize-none",
                       errors.message
                         ? "border-red-400 focus:border-red-500"
-                        : "border-gray-200 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500"
+                        : "border-gray-200 dark:border-neutral-700 focus:border-blue-500 dark:focus:border-blue-500"
                     )}
                   />
                   {errors.message && (
@@ -228,7 +226,7 @@ export default function Contact() {
 
                 {status === "error" && (
                   <p className="text-sm text-red-500">
-                    Gagal mengirim pesan. Silakan coba lagi atau hubungi via email langsung.
+                    Failed to send message. Please try again or reach out via email directly.
                   </p>
                 )}
 
@@ -239,10 +237,10 @@ export default function Contact() {
                   disabled={status === "loading"}
                 >
                   {status === "loading" ? (
-                    "Mengirim..."
+                    "Sending..."
                   ) : (
                     <>
-                      <FiSend /> Kirim Pesan
+                      <FiSend /> Send Message
                     </>
                   )}
                 </Button>

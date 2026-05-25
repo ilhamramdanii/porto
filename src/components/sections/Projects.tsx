@@ -30,8 +30,9 @@ export default function Projects() {
   const displayedProjects = showAll ? filtered : filtered.slice(0, 4);
 
   return (
-    <section id="portofolio" className="py-24 bg-white dark:bg-gray-950">
+    <section id="portofolio" className="py-24 bg-gray-50 dark:bg-neutral-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Section header — centered */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,14 +40,11 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">
-            Portfolio
-          </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
             Things I&apos;ve built that actually get used.
           </h2>
           <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-            Real systems, real clients, real impact not just side projects.
+            Real systems, real clients, real impact — not just side projects.
           </p>
         </motion.div>
 
@@ -63,13 +61,13 @@ export default function Projects() {
               key={key}
               onClick={() => {
                 setActiveFilter(key);
-                setShowAll(false); // Reset showAll saat ganti filter
+                setShowAll(false);
               }}
               className={cn(
                 "px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200",
                 activeFilter === key
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
+                  : "bg-white text-gray-600 hover:bg-gray-100 dark:bg-neutral-800 dark:text-gray-400 dark:hover:bg-neutral-700 border border-gray-200 dark:border-neutral-700"
               )}
             >
               {label}
@@ -84,10 +82,10 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
               >
                 <ProjectCard project={project} index={index} />
               </motion.div>
@@ -95,28 +93,25 @@ export default function Projects() {
           </AnimatePresence>
         </div>
 
-        {filtered.length > 2 && (
-          <motion.div 
-            layout
-            className="flex justify-center"
-          >
-            <Button 
-              variant="outline" 
+        {filtered.length > 4 && (
+          <motion.div layout className="flex justify-center">
+            <Button
+              variant="outline"
               onClick={() => setShowAll(!showAll)}
               className="gap-2"
             >
               {showAll ? (
-                <>Tampilkan Lebih Sedikit <FiMinus /></>
+                <>Show Less <FiMinus /></>
               ) : (
-                <>Lihat Semua Proyek <FiPlus /></>
+                <>View All Projects <FiPlus /></>
               )}
             </Button>
           </motion.div>
         )}
 
         {filtered.length === 0 && (
-          <div className="text-center py-16 text-gray-400 dark:text-gray-600">
-            Tidak ada proyek dalam kategori ini.
+          <div className="text-center py-16 text-gray-400 dark:text-neutral-600">
+            No projects in this category.
           </div>
         )}
       </div>

@@ -38,7 +38,7 @@ export default function Navbar() {
     setMobileOpen(false);
     const id = href.replace("#", "");
     const element = document.getElementById(id);
-    
+
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -46,9 +46,8 @@ export default function Navbar() {
       const targetPosition = elementPosition + startPosition - offset;
       const distance = targetPosition - startPosition;
       let startTime: number | null = null;
-      const duration = 1000; // Durasi dalam ms (lebih lama = lebih halus)
+      const duration = 1000;
 
-      // Fungsi Ease-In-Out Quad
       const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
         t /= d / 2;
         if (t < 1) return (c / 2) * t * t + b;
@@ -60,12 +59,8 @@ export default function Navbar() {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
         const nextScrollY = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        
         window.scrollTo(0, nextScrollY);
-        
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
+        if (timeElapsed < duration) requestAnimationFrame(animation);
       };
 
       requestAnimationFrame(animation);
@@ -77,7 +72,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/90 dark:bg-gray-950/90 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-800/50"
+          ? "bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-neutral-800/50"
           : "bg-transparent"
       )}
     >
@@ -103,7 +98,7 @@ export default function Navbar() {
                     "px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
                     isActive
                       ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950"
-                      : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                      : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-800"
                   )}
                 >
                   {label}
@@ -118,7 +113,7 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? <FiSun size={18} /> : <FiMoon size={18} />}
@@ -127,7 +122,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <FiX size={20} /> : <FiMenu size={20} />}
@@ -142,7 +137,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800"
+            className="md:hidden bg-white dark:bg-neutral-950 border-t border-gray-200 dark:border-neutral-800"
           >
             <ul className="px-4 py-3 space-y-1">
               {navLinks.map(({ href, label }) => {
@@ -156,7 +151,7 @@ export default function Navbar() {
                         "w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors",
                         isActive
                           ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950"
-                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                          : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-800"
                       )}
                     >
                       {label}

@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ThemeProvider from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "M Ilham Ramdani – Fullstack Developer & Web System Integrator",
   description:
-    "Fullstack Developer dengan fokus pada digitalisasi proses bisnis, sistem kesehatan, dan integrasi API enterprise.",
+    "Fullstack Developer focused on digitizing business processes, healthcare systems, and enterprise API integration.",
   keywords: [
     "Fullstack Developer",
     "Web Developer",
@@ -25,9 +37,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "M Ilham Ramdani – Fullstack Developer",
     description:
-      "Berpengalaman membangun sistem untuk sektor kesehatan dan industri, termasuk DMS, manajemen risiko, dan integrasi API.",
+      "Building systems for healthcare, industry, and enterprise — DMS, risk management, and API integration.",
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
   },
 };
 
@@ -37,15 +49,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning>
-      <head>
-        <script
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${dmSans.variable} ${syne.variable} font-sans bg-white dark:bg-neutral-950 antialiased`}
+      >
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme')||'system';var d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',t==='dark'||(t==='system'&&d))}catch(e){}})()`,
           }}
         />
-      </head>
-      <body className={`${inter.className} bg-white dark:bg-gray-950 antialiased`}>
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>
